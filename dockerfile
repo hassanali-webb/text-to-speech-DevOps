@@ -1,13 +1,5 @@
-FROM openjdk:17
+FROM nginx:alpine
 
-WORKDIR /app
+COPY . /usr/share/nginx/html
 
-# Copy backend jar
-COPY backend/target/app.jar app.jar
-
-# Copy frontend files (optional if served by backend)
-COPY frontend/ /app/static/
-
-EXPOSE 8080
-
-ENTRYPOINT ["java", "-jar", "app.jar"]
+EXPOSE 80

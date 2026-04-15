@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: text-to-speech
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: tts
+  template:
+    metadata:
+      labels:
+        app: tts
+    spec:
+      containers:
+      - name: tts
+        image: hassanali1824/text_to_speech:latest
+        ports:
+        - containerPort: 8080
